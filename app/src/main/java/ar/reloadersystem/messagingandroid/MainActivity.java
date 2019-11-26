@@ -4,6 +4,7 @@ import android.app.Notification;
 import android.app.PendingIntent;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.media.RingtoneManager;
 import android.os.Bundle;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.NotificationManagerCompat;
@@ -15,6 +16,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     Button btn_notificar;
     int id = 0;
+
+    int count = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,10 +36,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         // createSimpleNotification();
         //createSimpleColorIconNotification();
         //createPictureStyleNotification();
-        notificationOpenActivity();
-
+        //notificationOpenActivity();
+        notificationCountSound();
         //necesariamente  no es usar un botón, sino un servicio que esta latente en este activity, o en segundo plano corriendo...
         //el servidor manda un mensaje y traes la data del servicio, y  podrias  validar  a que grupo de personas  enviar, y ejecutas tu metodo....
+    }
+
+    private void notificationCountSound() {
+        count = count + 1;
+        Notification notification = new NotificationCompat.Builder(MainActivity.this, "")
+                .setContentTitle("New Messages")
+                .setContentText("You've received new messages.")
+                .setSmallIcon(R.drawable.ic_notification)
+                .setNumber(count)
+                .setBadgeIconType(R.drawable.ic_notification)
+                .setVibrate(new long[]{0, 250, 100, 250})
+                .setSound(RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION))
+                .build();
+        NotificationManagerCompat.from(this).notify(id, notification);
+        //  id++; abre el mensaje en un nuevo slot
     }
 
     private void notificationOpenActivity() {
