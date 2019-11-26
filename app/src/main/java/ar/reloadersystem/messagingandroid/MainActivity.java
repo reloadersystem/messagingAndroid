@@ -33,6 +33,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
 
+        //Prueben cada metodo y descomenten el que desean ver...
+
         // createSimpleNotification();
         //createSimpleColorIconNotification();
         //createPictureStyleNotification();
@@ -49,7 +51,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 .setContentText("You've received new messages.")
                 .setSmallIcon(R.drawable.ic_notification)
                 .setNumber(count)
-                .setBadgeIconType(R.drawable.ic_notification)
                 .setVibrate(new long[]{0, 250, 100, 250})
                 .setSound(RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION))
                 .build();
