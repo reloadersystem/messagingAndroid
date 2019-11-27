@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">messagingAndroid</string>
+    <string name="message">Esperamos que levante el servidor....</string>
 </resources>
