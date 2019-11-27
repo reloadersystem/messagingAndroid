@@ -18,6 +18,7 @@ import android.support.v4.media.session.MediaSessionCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -54,9 +55,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //notificationCountSound();
         //setBadge(MainActivity.this, 10);
         //notificationDownloadIndeterminate();
-        notificationDownloadPercentage();
+        //notificationDownloadPercentage();
         //notificationToast();
-        //musicNotificationPlay();
+        musicNotificationPlay();
 
 
         //necesariamente  no es usar un botón, sino un servicio que esta latente en este activity, o en segundo plano corriendo...
@@ -68,9 +69,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         Notification notification = new NotificationCompat.Builder(this, "")
                 .setSmallIcon(R.drawable.ic_security)
-                .setContentTitle("Reloader Maintenance")
+                .setContentTitle("Bob Dylan")
                 .setContentText("Mantenimiento de Servidor 12:15 am")
-                .setLargeIcon(Util.getBitMapFromAsset(this, "reloadericon.png"))
+                .setLargeIcon(Util.getBitMapFromAsset(this, "discography.jpg"))
                 .addAction(R.drawable.like, "like", null)
                 .addAction(R.drawable.ic_skip_previous, "anterior", null)
                 .addAction(R.drawable.ic_pause, "pausa", null)
